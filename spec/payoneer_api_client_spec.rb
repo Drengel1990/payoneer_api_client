@@ -1,9 +1,13 @@
 RSpec.describe PayoneerApiClient do
-  it "has a version number" do
-    expect(PayoneerApiClient::VERSION).not_to be nil
-  end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  let(:configuration) { PayoneerApiClient.configure do |conf|
+    conf.environment = 'development'
+    conf.partner_id = 'XXXXXXXX'
+    conf.partner_username = 'XXXXXXXX'
+    conf.partner_api_password = 'XXXXXXXX'
+  end }
+
+  it 'has a version number' do
+    expect(PayoneerApiClient::VERSION).not_to be nil
   end
 end
